@@ -1,9 +1,38 @@
 import { Layout } from "antd";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import Center from "../../components/Center";
 
 const { Header, Content } = Layout;
 
 export default function News() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const state = location.state;
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
+  if (!state) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "1rem",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100vh",
+        }}
+      >
+        <p>:(</p>
+        <a className="link" href="/">
+          Back to Home
+        </a>
+      </div>
+    );
+  }
   return (
     <>
       <Header
@@ -23,29 +52,34 @@ export default function News() {
             className="card-title hoverable"
             style={{ fontWeight: "bolder", margin: 0, fontSize: "40px" }}
           >
-            <a href="/">news.</a>
+            <a onClick={goBack}>news.</a>
           </h1>
         </Center>
       </Header>
       <Content style={{ marginBlock: "2rem" }}>
         <h1 className="card-title hoverable">
-          <a>The Trial Over Bitcoin’s True Creator Is in Session</a>
+          <a href={state.data.url}>{state.data.title}</a>
         </h1>
         <img
           style={{
             width: "100%",
             height: "auto",
+            maxHeight: "200px",
+            objectFit: "cover",
             marginTop: "1rem",
             borderRadius: "16px",
           }}
-          src="https://media.wired.com/photos/65bd7e2524c06ba3ede91a33/191:100/w_1280,c_limit/Craig-Wright-Trial-Day-1-Business-Yellow-1494808061.jpg"
+          src={state.data.urlToImage}
         />
-        <p style={{ marginBlock: "2rem .5rem" }}>
-          A UK High Court will settle a long-running debate over whether Craig
-          Wright really is Satoshi Nakamoto, inventor of Bitcoin. Monday’s
-          opening arguments laid the groundwork for both sides.
-        </p>
-        <a className="link">read more</a>
+        <p style={{ marginBlock: "2rem .5rem" }}>{state.data.description}</p>
+        <a
+          className="link"
+          href={state.data.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          read more
+        </a>
       </Content>
     </>
   );

@@ -1,30 +1,21 @@
-# React + TypeScript + Vite
+# NEWS APP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Criteria
 
-Currently, two official plugins are available:
+- [x] React
+- [x] Typescript
+- [x] Ant Design
+- [x] News API
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Feature
 
-## Expanding the ESLint configuration
+- Searchable Articles
+- Tag
+- Infinite Scroll
+- Detail View
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## HOW TO RUN
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Create .env, create VITE_API_KEY with your NewsAPI API key
+2. npm i
+3. npm run dev

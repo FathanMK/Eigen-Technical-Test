@@ -12,6 +12,7 @@
 .link {
   color: black;
   font-weight: bold;
+  transition: all 150ms ease-in-out;
 }
 .link:hover {
   color: blue;

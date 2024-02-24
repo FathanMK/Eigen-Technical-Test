@@ -21,16 +21,19 @@ export default function Card({
   children,
   loading,
   cover,
+  onClick,
 }: {
   children: ReactNode;
   loading?: boolean;
   cover?: string;
+  onClick?: () => void;
 }) {
   return (
     <AntdCard
       className="card"
       style={{ padding: "1rem", cursor: "pointer" }}
       loading={loading}
+      onClick={onClick}
       cover={
         loading ? (
           <Skeleton.Image active={true} />

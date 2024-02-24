@@ -5,6 +5,8 @@ import Card from "../../../../components/Card";
 import Attribution from "../../../../components/Text/Attribution";
 import { HomeContext } from "../../providers";
 import Center from "../../../../components/Center";
+import { useNavigate } from "react-router-dom";
+import slugify from "../../../../utils/slugify";
 
 const { Content: AntdContent } = Layout;
 
@@ -13,6 +15,8 @@ export default function Content() {
     useContext(HomeContext);
 
   const contentRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+
   const handleScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop !==
@@ -52,7 +56,17 @@ export default function Content() {
               </Center>
             ) : (
               group.data.articles.map((item: any, index: any) => (
-                <Card key={index} cover={item.urlToImage}>
+                <Card
+                  key={index}
+                  cover={item.urlToImage}
+                  onClick={() =>
+                    navigate(`/news/${slugify(item.title)}`, {
+                      state: {
+                        data: item,
+                      },
+                    })
+                  }
+                >
                   <Card.Title>{item.title}</Card.Title>
                   <Card.Description>{item.description}</Card.Description>
                   <Card.Footer>
