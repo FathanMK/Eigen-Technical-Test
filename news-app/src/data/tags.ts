@@ -1,6 +1,6 @@
 const tags = [
   "technology",
-  "video games",
+  "gaming",
   "food",
   "beverage",
   "AI",

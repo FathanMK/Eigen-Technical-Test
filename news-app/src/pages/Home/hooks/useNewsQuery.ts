@@ -23,7 +23,7 @@ export default function useNewsQuery(search: string) {
     },
     initialPageParam: 1,
     getNextPageParam: (lastPage, _, lastPageParam) => {
-      if (lastPage.data.length === 0) {
+      if (lastPage.data.articles.length === 0) {
         return undefined;
       }
       return lastPageParam + 1;

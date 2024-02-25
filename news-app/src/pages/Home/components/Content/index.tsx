@@ -1,11 +1,11 @@
 import { Layout, Spin } from "antd";
 import { Fragment, useContext, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Card from "../../../../components/Card";
 import Attribution from "../../../../components/Text/Attribution";
 import { HomeContext } from "../../providers";
 import Center from "../../../../components/Center";
-import { useNavigate } from "react-router-dom";
 import slugify from "../../../../utils/slugify";
 
 const { Content: AntdContent } = Layout;
